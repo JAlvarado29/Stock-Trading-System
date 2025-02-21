@@ -1,15 +1,15 @@
-// Replace with your actual Finnhub API key
+
 const API_KEY = 'VSG9L5IX4MEOO1Q8';
 
-// Initialize the chart and mode
-let chart;
-let currentChartMode = '1D';  // Default chart mode is '1D'
 
-// Function to search for stock and update the chart with historical data
+let chart;
+let currentChartMode = '1D';  
+
+
 function searchStock() {
 
     const stockSymbol = document.getElementById('stock-search').value.toUpperCase();
-    const timeRange = currentChartMode;  // Use the global chart mode for time range
+    const timeRange = currentChartMode;  
     let startDate = '';
     let interval = '';
     let monthRange = '';
@@ -26,7 +26,7 @@ function searchStock() {
     }
     else if (getStartDateForTimeRange(timeRange) === 'TIME_SERIES_MONTHLY') {
 
-        const today = new Date();  // Current timestamp in seconds
+        const today = new Date();  
         const month = today.getMonth() - 1 === -1 ? 12 : today.getMonth();
         const year = today.getMonth() - 1 === -1 ? today.getFullYear() - 1 : today.getFullYear();
         const monthText = month < 10 ? `0${month}` : month;
@@ -65,7 +65,7 @@ function searchStock() {
                         break;
                     }
                 }
-                // Update the chart with the historical stock data
+                
                 chart.data.labels = labels;
                 chart.data.datasets[0].data = prices;
                 chart.data.datasets[0].label = `Stock Price of ${stockSymbol} (${timeRange})`;
@@ -84,22 +84,22 @@ function searchStock() {
     }
 }
 
-// Helper function to calculate the start date for each time range
+
 function getStartDateForTimeRange(timeRange) {
 
     switch (timeRange) {
         case '1D':
-            return 'TIME_SERIES_INTRADAY';  // 1 day ago
+            return 'TIME_SERIES_INTRADAY';  
         case '1M':
-            return 'TIME_SERIES_INTRADAY-';  // 1 month ago
+            return 'TIME_SERIES_INTRADAY-'; 
         case 'Max':
-            return 'TIME_SERIES_MONTHLY';  // 10 years ago (Max)
+            return 'TIME_SERIES_MONTHLY';  
         default:
-            return 'TIME_SERIES_INTRADAY';  // Default to 1 year ago
+            return 'TIME_SERIES_INTRADAY';  
     }
 }
 
-// Function to initialize the chart
+
 function initializeChart() {
 
     const ctx = document.getElementById('portfolioGraph').getContext('2d');
@@ -109,7 +109,7 @@ function initializeChart() {
         type: 'line',
         data: {
 
-            labels: [],  // Empty labels for now, will be populated when stock data is fetched
+            labels: [],  
             datasets: [{
 
                 label: 'Stock Price',
@@ -128,23 +128,23 @@ function initializeChart() {
 
                 y: {
 
-                    beginAtZero: false  // Start y-axis at a dynamic value based on stock prices
+                    beginAtZero: false  
                 }
             }
         }
     });
 }
 
-// Function to update the chart data based on time range
+
 function updateChart(timeRange) {
 
-    currentChartMode = timeRange;  // Set the global chart mode
+    currentChartMode = timeRange; 
     searchStock();
 }
 
-// On page load, initialize the chart
+
 window.onload = function () {
 
-    initializeChart();  // Initialize an empty chart when the page loads
+    initializeChart();  
 };
 
