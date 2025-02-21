@@ -7,7 +7,7 @@
     <title>Stock Trading System</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script defer src="app.js"></script> <!-- Make sure to load your app.js file -->
+    <script defer src="app.js"></script> 
 </head>
 
 <body>
@@ -28,25 +28,25 @@
         </nav>
 
         <main>
-            <!-- Portfolio Chart and Live Chat -->
+           
             <section class="card portfolio">
-                <!-- Search Bar and Chart Flex Container -->
+                
                 <div class="chart-livechat-container">
-                    <!-- Left Side: Search Bar and Chart -->
+                    
                     <div class="left-side">
-                        <!-- Search Bar -->
+                        
                         <div class="search-container">
                             <input type="text" id="stock-search" placeholder="Search for a stock..." />
                             <button onclick="searchStock()">Search</button>
                         </div>
 
-                        <!-- Chart -->
+                       
                         <div class="chart-container">
                             <canvas id="portfolioGraph"></canvas>
                         </div>
                     </div>
 
-                    <!-- Right Side: Live Chat -->
+                    
                     <div class="live-chat-container">
                         <h4>Live Chat</h4>
                         <div class="chat-box">
