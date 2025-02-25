@@ -215,7 +215,7 @@ tbody td {
   border-bottom: 1px solid #ccc;
 }
 
-/* Adjusting layout for Your Assets and Watchlist */
+
 .assets-container,
 .watchlist-container {
   display: flex;
