@@ -1,4 +1,3 @@
-
 const API_KEY = 'VSG9L5IX4MEOO1Q8';
 
 
